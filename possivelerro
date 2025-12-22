@@ -1,0 +1,6 @@
+se houver algum sistema inicializado anteriormente de outro projeto, faça isso:
+1 - netstat -ano | findstr :8080
+LISTA O IP QUE ESTÁ USANDO A PORTA
+
+2-taskkill /PID 12345 /F
+FINALIZA ESSE IP;
