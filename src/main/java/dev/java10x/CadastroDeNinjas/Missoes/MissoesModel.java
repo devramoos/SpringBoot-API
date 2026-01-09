@@ -1,61 +1,32 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
+
+
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
-@Entity
-@Table (name = "tb_missoes")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "tb-missoes")
 public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    private String missao;
+    private String nome;
 
-    private String rankDeMissao;
+    private String dificuldade;
 
-    // @OneToMany uma missao para muitos ninjas
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
 
-    public MissoesModel() {
-    }
-
-    public MissoesModel(Long id, String missao, String rankDeMissao) {
-        this.id = id;
-        this.missao = missao;
-        this.rankDeMissao = rankDeMissao;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMissao() {
-        return missao;
-    }
-
-    public void setMissao(String missao) {
-        this.missao = missao;
-    }
-
-    public String getRankDeMissao() {
-        return rankDeMissao;
-    }
-
-    public void setRankDeMissao(String rankDeMissao) {
-        this.rankDeMissao = rankDeMissao;
-    }
 }
